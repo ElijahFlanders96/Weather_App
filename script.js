@@ -243,22 +243,24 @@ function displayForecastDayFive() {
 
 function saveHistory() {
 
-    var cityName = $("#citySearch").val().trim()
+    var cityName = $("#citySearch").val().trim();
 
-    var ul = $("#list")
+    var ul = $("#list");
 
     var li = $("<li>");
 
-    var btn = $("<btn id='saved'>").text(cityName)
+    var btn = $("<btn class='saved'>").text(cityName);
 
     li.append(btn);
 
-    ul.append(li);
+    ul.prepend(li);
 
-    $("#saved").on("click", function(event) {
+    // localStorage.setItem('history', JSON.stringify(ul));
+    // localStorage.getItem('history');
+    
+    $(".saved").on("click", function(event) {
         event.preventDefault();
-
-        $("#citySearch").empty();
+    
         $("#weatherView").empty();
         $("#forecast").empty();
     
@@ -269,7 +271,7 @@ function saveHistory() {
         displayForecastDayFour();
         displayForecastDayFive();
     });
-    
+
 }
 
 $(".searchBtn").on("click", function(event) {
@@ -285,4 +287,5 @@ $(".searchBtn").on("click", function(event) {
     displayForecastDayFour();
     displayForecastDayFive();
     saveHistory();
+
 })
