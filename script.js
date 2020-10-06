@@ -8,7 +8,7 @@ function displayCityInfo() {
         method: "GET"
     }).then(function(response) {
 
-        var cityDiv = $("<div class='city'>");
+        var cityDiv = $("<div id='city'>");
 
         var city = response.name;
 
@@ -24,7 +24,7 @@ function displayCityInfo() {
 
         var icon = response.weather[0].icon;
 
-        var image = $("<img>").attr("src", icon)
+        var image = $("<img>").attr("src", icon);
 
         cityDiv.append(image);
 
@@ -95,7 +95,7 @@ function displayForecastDayOne() {
 
         cityDiv.append(pThree);
 
-        $("#forecast").append(cityDiv);
+        $("#forecast1").append(cityDiv);
 
         
     })
@@ -130,7 +130,7 @@ function displayForecastDayTwo() {
 
         cityDiv.append(pThree);
 
-        $("#forecast").append(cityDiv);
+        $("#forecast2").append(cityDiv);
 
         
     })
@@ -165,7 +165,7 @@ function displayForecastDayThree() {
 
         cityDiv.append(pThree);
 
-        $("#forecast").append(cityDiv);
+        $("#forecast3").append(cityDiv);
 
         
     })
@@ -200,7 +200,7 @@ function displayForecastDayFour() {
 
         cityDiv.append(pThree);
 
-        $("#forecast").append(cityDiv);
+        $("#forecast4").append(cityDiv);
 
         
     })
@@ -235,7 +235,7 @@ function displayForecastDayFive() {
 
         cityDiv.append(pThree);
 
-        $("#forecast").append(cityDiv);
+        $("#forecast5").append(cityDiv);
 
         
     })
