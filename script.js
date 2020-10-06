@@ -1,3 +1,33 @@
+var storageArray = [];
+
+function onPageLoad() {
+
+    // var cityName = $("#citySearch").val().trim();
+
+    var showBtn = JSON.parse(localStorage.getItem('history'));
+
+    var ul = $("#list");
+
+    ul.empty();
+
+    console.log(showBtn);
+
+    for (var i = 0; i < storageArray.length; i++) {
+        
+        var ul = $("#list");
+
+        var li = $("<li>");
+
+        var btn = $("<btn class='saved'>").text(showBtn[i]);
+
+        li.append(btn);
+
+        ul.prepend(li);
+    }
+
+    
+}
+
 function displayCityInfo() {
 
     var cityName = $("#citySearch").val().trim()
@@ -9,6 +39,7 @@ function displayCityInfo() {
     }).then(function(response) {
 
         var cityDiv = $("<div id='city'>");
+        cityDiv.empty();
 
         var city = response.name;
 
@@ -17,14 +48,17 @@ function displayCityInfo() {
         cityDiv.append(pOne);
 
         var temp = (response.main.temp - 273.15) * 1.80 + 32;
+        var tempy = Math.floor(temp);
 
-        var pTwo = $("<p>").text("Temperature " + temp + " degrees Farenheit");
+        var pTwo = $("<p>").text("Temperature: " + tempy + "F");
 
         cityDiv.append(pTwo);
 
-        var icon = response.weather[0].icon;
+        var iconCode = response.weather[0].icon;
 
-        var image = $("<img>").attr("src", icon);
+        var iconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+
+        var image = $("<img>").attr("src", iconURL);
 
         cityDiv.append(image);
 
@@ -77,15 +111,24 @@ function displayForecastDayOne() {
 
         var cityDiv = $("<div class='city'>");
 
-        var temp = (response.list[4].main.temp - 273.15) * 1.80 + 32;
+        var date = response.list[4].dt_txt;
 
-        var pTwo = $("<p>").text("Temperature " + temp + " degrees Farenheit");
+        var pDate = $("<p>").text(date);
+
+        cityDiv.append(pDate);
+
+        var temp = (response.list[4].main.temp - 273.15) * 1.80 + 32;
+        var tempy = Math.floor(temp);
+
+        var pTwo = $("<p>").text("Temperature: " + tempy + "F");
 
         cityDiv.append(pTwo);
 
-        var icon = response.list[4].weather[0].icon;
+        var iconCode = response.list[4].weather[0].icon;
 
-        var image = $("<img>").attr("src", icon)
+        var iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+
+        var image = $("<img>").attr("src", iconUrl)
 
         cityDiv.append(image);
 
@@ -112,15 +155,24 @@ function displayForecastDayTwo() {
 
         var cityDiv = $("<div class='city'>");
 
-        var temp = (response.list[12].main.temp - 273.15) * 1.80 + 32;
+        var date = response.list[12].dt_txt;
 
-        var pTwo = $("<p>").text("Temperature " + temp + " degrees Farenheit");
+        var pDate = $("<p>").text(date);
+
+        cityDiv.append(pDate);
+
+        var temp = (response.list[12].main.temp - 273.15) * 1.80 + 32;
+        var tempy = Math.floor(temp);
+
+        var pTwo = $("<p>").text("Temperature: " + tempy + "F");
 
         cityDiv.append(pTwo);
 
-        var icon = response.list[12].weather[0].icon;
+        var iconCode = response.list[12].weather[0].icon;
 
-        var image = $("<img>").attr("src", icon)
+        var iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+
+        var image = $("<img>").attr("src", iconUrl)
 
         cityDiv.append(image);
 
@@ -147,15 +199,24 @@ function displayForecastDayThree() {
 
         var cityDiv = $("<div class='city'>");
 
-        var temp = (response.list[20].main.temp - 273.15) * 1.80 + 32;
+        var date = response.list[20].dt_txt;
 
-        var pTwo = $("<p>").text("Temperature " + temp + " degrees Farenheit");
+        var pDate = $("<p>").text(date);
+
+        cityDiv.append(pDate);
+
+        var temp = (response.list[20].main.temp - 273.15) * 1.80 + 32;
+        var tempy = Math.floor(temp);
+
+        var pTwo = $("<p>").text("Temperature: " + tempy + "F");
 
         cityDiv.append(pTwo);
 
-        var icon = response.list[20].weather[0].icon;
+        var iconCode = response.list[20].weather[0].icon;
 
-        var image = $("<img>").attr("src", icon)
+        var iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+
+        var image = $("<img>").attr("src", iconUrl)
 
         cityDiv.append(image);
 
@@ -182,15 +243,24 @@ function displayForecastDayFour() {
 
         var cityDiv = $("<div class='city'>");
 
-        var temp = (response.list[28].main.temp - 273.15) * 1.80 + 32;
+        var date = response.list[28].dt_txt;
 
-        var pTwo = $("<p>").text("Temperature " + temp + " degrees Farenheit");
+        var pDate = $("<p>").text(date);
+
+        cityDiv.append(pDate);
+
+        var temp = (response.list[28].main.temp - 273.15) * 1.80 + 32;
+        var tempy = Math.floor(temp);
+
+        var pTwo = $("<p>").text("Temperature: " + tempy + "F");
 
         cityDiv.append(pTwo);
 
-        var icon = response.list[28].weather[0].icon;
+        var iconCode = response.list[28].weather[0].icon;
 
-        var image = $("<img>").attr("src", icon)
+        var iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+
+        var image = $("<img>").attr("src", iconUrl)
 
         cityDiv.append(image);
 
@@ -217,15 +287,24 @@ function displayForecastDayFive() {
 
         var cityDiv = $("<div class='city'>");
 
-        var temp = (response.list[36].main.temp - 273.15) * 1.80 + 32;
+        var date = response.list[36].dt_txt;
 
-        var pTwo = $("<p>").text("Temperature " + temp + " degrees Farenheit");
+        var pDate = $("<p>").text(date);
+
+        cityDiv.append(pDate);
+
+        var temp = (response.list[36].main.temp - 273.15) * 1.80 + 32;
+        var tempy = Math.floor(temp);
+
+        var pTwo = $("<p>").text("Temperature: " + tempy + "F");
 
         cityDiv.append(pTwo);
 
-        var icon = response.list[36].weather[0].icon;
+        var iconCode = response.list[36].weather[0].icon;
 
-        var image = $("<img>").attr("src", icon)
+        var iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+
+        var image = $("<img>").attr("src", iconUrl)
 
         cityDiv.append(image);
 
@@ -245,40 +324,51 @@ function saveHistory() {
 
     var cityName = $("#citySearch").val().trim();
 
-    var ul = $("#list");
+    storageArray.push(cityName);
 
-    var li = $("<li>");
+    localStorage.setItem('history', JSON.stringify(storageArray));
 
-    var btn = $("<btn class='saved'>").text(cityName);
+    // var ul = $("#list");
 
-    li.append(btn);
+    // var li = $("<li>");
 
-    ul.prepend(li);
+    // var btn = $("<btn class='saved'>").text(cityName);
 
-    // localStorage.setItem('history', JSON.stringify(ul));
-    // localStorage.getItem('history');
+    // li.append(btn);
+
+    // ul.prepend(li);
     
-    $(".saved").on("click", function(event) {
-        event.preventDefault();
     
-        $("#weatherView").empty();
-        $("#forecast").empty();
-    
-        displayCityInfo();
-        displayForecastDayOne();
-        displayForecastDayTwo();
-        displayForecastDayThree();
-        displayForecastDayFour();
-        displayForecastDayFive();
-    });
-
 }
+
+$(document).on("click", ".saved", function(event) {
+    event.preventDefault();
+
+    $("#weatherView").empty();
+    $("#forecast1").empty();
+    $("#forecast2").empty();
+    $("#forecast3").empty();
+    $("#forecast4").empty();
+    $("#forecast5").empty();
+
+    displayCityInfo();
+    displayForecastDayOne();
+    displayForecastDayTwo();
+    displayForecastDayThree();
+    displayForecastDayFour();
+    displayForecastDayFive();
+});
+
 
 $(".searchBtn").on("click", function(event) {
     event.preventDefault();
 
     $("#weatherView").empty();
-    $("#forecast").empty();
+    $("#forecast1").empty();
+    $("#forecast2").empty();
+    $("#forecast3").empty();
+    $("#forecast4").empty();
+    $("#forecast5").empty();
 
     displayCityInfo();
     displayForecastDayOne();
@@ -287,5 +377,6 @@ $(".searchBtn").on("click", function(event) {
     displayForecastDayFour();
     displayForecastDayFive();
     saveHistory();
+    onPageLoad();
 
-})
+});
