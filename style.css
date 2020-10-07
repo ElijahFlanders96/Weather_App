@@ -18,8 +18,11 @@ header {
     background: pink;
     color: black;
     width: 20%;
+   
     text-align: center;
     border-radius: 10px;
+    padding: 7px;
+    margin-bottom: 5px;
 
 }
 
@@ -30,7 +33,6 @@ header {
     float: left;
     text-align: center;
     border-radius: 10px;
-
     
 }
 #forecast2 {
@@ -41,7 +43,6 @@ header {
     margin-left: 5px;
     text-align: center;
     border-radius: 10px;
-
     
 }
 #forecast3 {
@@ -52,7 +53,6 @@ header {
     margin-left: 5px;
     text-align: center;
     border-radius: 10px;
-
     
 }
 #forecast4 {
@@ -63,7 +63,6 @@ header {
     margin-left: 5px;
     text-align: center;
     border-radius: 10px;
-
     
 }
 #forecast5 {
@@ -74,6 +73,26 @@ header {
     margin-left: 5px;
     text-align: center;
     border-radius: 10px;
-
     
+}
+
+
+
+
+/* #city {
+    background: lightgreen;
+    color: black;
+    width: 20%;
+} */
+
+.high {
+    color: red;
+}
+
+.med {
+    color: yellow;
+}
+
+.low {
+    color: green;
 }
