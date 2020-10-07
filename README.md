@@ -2,22 +2,22 @@
 
 Description:
 
-This weather dashboard allows you to search for a city and view it's current weather and the five day forecast. You can search for multiple cities and use the buttons generated to toggle between their weather forecasts.
+This application allows you to search the weather forecast for a city of the usser's choice. THe app will display the current weather, in addition to a five-day future forecast.
 
-Links: Repository Link - https://github.com/kyliemegan24/Weather_Dashboard
+Links: Repository Link - https://github.com/ElijahFlanders96/Weather_App
 
-Gitpages link - https://kyliemegan24.github.io/Weather_Dashboard/
+Gitpages link - https://elijahflanders96.github.io/Weather_App/
 
 Usage Instructions:
 
 Type in the city of your choosing and click "search." Click the buttons generated below the search bar to view the cities you've previously searched for.
 
-
+<img src="weather_dashboard.png">
 
 Installation: N/A
 
 Credits/Thanks :
 
-Thanks to my partner Elijah Flanders for brainstorming with me to build this app.
+Much thanks as always to Kylie Schmidt for working through this project with me.
 
 License info: None
